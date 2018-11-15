@@ -58,7 +58,19 @@ public class CGameManager : MonoBehaviour {
     {
         for (int i = 0; i < 50; i++)
         {
-            m_Object[objCount].gameObject.SetActive(true);
+            if (objCount >= 10) {
+                objCount = 0;
+            }
+            if (i > 3)
+            {
+                m_Object[objCount].gameObject.SetActive(true);
+                objCount++;
+                m_Object[objCount].gameObject.SetActive(true);
+            }
+            else
+            {
+                m_Object[objCount].gameObject.SetActive(true);
+            }
             objCount++;
             yield return new WaitForSeconds(2.0f);
         }
